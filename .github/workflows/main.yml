@@ -1,0 +1,19 @@
+name: Aula de integração continua
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+     - uses: actions/checkout@v3
+
+     - name: Mostra texto
+      run: echo Aula Ok
+
+    - name: Sincronia com o Glitch
+      uses: kanadgupta/glitch-sync@v3.0.1
+      with:
+       auth-token: '${{ secrets.TOKEN }}'
+       project-id: '${{ secrets.PROJECT_ID }}'
